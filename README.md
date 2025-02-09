@@ -1,6 +1,7 @@
 The **Emotion Predictor From Social Media Usage** project analyzes social media usage data to predict the dominant emotion of a user. It incorporates exploratory data analysis (EDA), data visualizations, and multiple machine learning models to build a robust prediction tool. The project also includes a simple web application to interact with these predictive models.
 
 **Features**
+
 Exploratory Data Analysis: A comprehensive Jupyter Notebook (EDA And Model Building.ipynb) details the EDA process, data cleaning, and visualization of key relationships (e.g., usage time, likes received, platform usage).
 Machine Learning Models: Multiple pipelines are provided, including:
 Decision Tree (dt_pipeline.pkl)
