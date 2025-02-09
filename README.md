@@ -1,6 +1,6 @@
 The **Emotion Predictor App** leverages machine learning models to analyze social media usage data and predict the dominant emotion of a user. It incorporates exploratory data analysis (EDA), data visualizations, and multiple pre-trained machine learning models to build a robust prediction tool. The app also features a simple web application for interacting with these predictive models and a weighted voting system that combines predictions from different models to enhance accuracy.   
 
-**Key Features**  
+**Key Features** 
 **Exploratory Data Analysis:** A comprehensive Jupyter Notebook (EDA And Model Building.ipynb) details the EDA process, data cleaning, and visualization of key relationships (e.g., usage time, likes received, platform usage).
 **Multiple Models:** Includes Random Forest, KNN, Decision Tree, Logistic Regression, and SVM.   
 **Weighted Voting:** Combines model predictions based on their accuracy to provide the most reliable outcome.   
@@ -19,7 +19,7 @@ Support Vector Machine Pipeline: svm_pipeline.pkl
 
 **Web Application:** A simple web interface (app.py) lets users input social media usage parameters and receive a predicted dominant emotion.   
 
-**How to Use**
+**How to Use**     
 Navigate to the Emotion Predictor page from the sidebar to enter your details.
 Provide information such as age, gender, platform, and engagement metrics like daily usage time and posts per day.
 Click on Predict Emotion to see the results based on your input data and the model’s predictions.
