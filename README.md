@@ -17,4 +17,11 @@ Random Forest Pipeline: rf_pipeline.pkl
 Stacking Model: stacking_model.pkl
 Support Vector Machine Pipeline: svm_pipeline.pkl
 
-**Web Application:** A simple web interface (app.py) lets users input social media usage parameters and receive a predicted dominant emotion.
+**Web Application:** A simple web interface (app.py) lets users input social media usage parameters and receive a predicted dominant emotion.   
+
+**How to Use**
+Navigate to the Emotion Predictor page from the sidebar to enter your details.
+Provide information such as age, gender, platform, and engagement metrics like daily usage time and posts per day.
+Click on Predict Emotion to see the results based on your input data and the model’s predictions.
+Explore the Prediction History page to review past predictions and their corresponding input data.
+Visit the Exploratory Data Analysis (EDA) page to analyze visual insights and trends in emotion distribution across different user demographics.
