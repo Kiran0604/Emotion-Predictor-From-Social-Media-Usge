@@ -1,0 +1,1 @@
+The Emotion Predictor From Social Media Usage project analyzes social media usage data to predict the dominant emotion of a user. It incorporates exploratory data analysis (EDA), data visualizations, and multiple machine learning models to build a robust prediction tool. The project also includes a simple web application to interact with these predictive models.
