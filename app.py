@@ -18,12 +18,12 @@ def safe_load_model(filename):
         return None
 
 # Load pre-trained models (relative paths)
-rf_pipeline = safe_load_model('rf_pipeline.pkl')
-knn_pipeline = safe_load_model('knn_pipeline.pkl')
-dt_pipeline = safe_load_model('dt_pipeline.pkl')
-lr_pipeline = safe_load_model('lr_pipeline.pkl')
-svm_pipeline = safe_load_model('svm_pipeline.pkl')
-stacking_model = safe_load_model('stacking_model.pkl')
+rf_pipeline = safe_load_model(os.path.join('pkl', 'rf_pipeline.pkl'))
+knn_pipeline = safe_load_model(os.path.join('pkl', 'knn_pipeline.pkl'))
+dt_pipeline = safe_load_model(os.path.join('pkl', 'dt_pipeline.pkl'))
+lr_pipeline = safe_load_model(os.path.join('pkl', 'lr_pipeline.pkl'))
+svm_pipeline = safe_load_model(os.path.join('pkl', 'svm_pipeline.pkl'))
+stacking_model = safe_load_model(os.path.join('pkl', 'stacking_model.pkl'))
 
 
 # Pre-trained models (skip None)
