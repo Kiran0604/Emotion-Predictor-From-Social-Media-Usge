@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+
 import joblib
 import matplotlib.pyplot as plt
 import sqlite3
@@ -7,23 +8,32 @@ from datetime import datetime
 import os
 import collections
 import json
-# Load pre-trained models
-rf_pipeline = joblib.load('rf_pipeline.pkl')
-knn_pipeline = joblib.load('knn_pipeline.pkl')
-dt_pipeline = joblib.load('dt_pipeline.pkl')
-lr_pipeline = joblib.load('lr_pipeline.pkl')
-svm_pipeline = joblib.load('svm_pipeline.pkl')
-stacking_model = joblib.load('stacking_model.pkl')
 
-# Pre-trained models
-models = {
-    'RandomForest': rf_pipeline,
-    'KNN': knn_pipeline,
-    'DecisionTree': dt_pipeline,
-    'LogisticRegression': lr_pipeline,
-    'SVM': svm_pipeline,
-    'Stacking': stacking_model  
-}
+# Helper to load model safely
+def safe_load_model(filename):
+    try:
+        return joblib.load(filename)
+    except Exception as e:
+        st.error(f"Model file '{filename}' not found or could not be loaded: {e}")
+        return None
+
+# Load pre-trained models (relative paths)
+rf_pipeline = safe_load_model('rf_pipeline.pkl')
+knn_pipeline = safe_load_model('knn_pipeline.pkl')
+dt_pipeline = safe_load_model('dt_pipeline.pkl')
+lr_pipeline = safe_load_model('lr_pipeline.pkl')
+svm_pipeline = safe_load_model('svm_pipeline.pkl')
+stacking_model = safe_load_model('stacking_model.pkl')
+
+
+# Pre-trained models (skip None)
+models = {}
+if rf_pipeline: models['RandomForest'] = rf_pipeline
+if knn_pipeline: models['KNN'] = knn_pipeline
+if dt_pipeline: models['DecisionTree'] = dt_pipeline
+if lr_pipeline: models['LogisticRegression'] = lr_pipeline
+if svm_pipeline: models['SVM'] = svm_pipeline
+if stacking_model: models['Stacking'] = stacking_model
 
 # Weights for each model based on accuracy
 model_weights = {
@@ -307,24 +317,32 @@ else:
         st.title("Exploratory Data Analysis (EDA)")
         st.write("Visualizing the exploratory data analysis results for the dataset.")
     
-    # Define the directory where your images are stored
-        image_directory = r"C:\Users\Kiran\OneDrive\Desktop\DBMS LAB\aiml lab"
+    # Define the directory where your images are stored (relative for Streamlit Cloud)
+        image_directory = "images"
+        if not os.path.exists(image_directory):
+            st.warning(f"Image directory '{image_directory}' not found. Please add an 'images' folder with your .png/.jpg files.")
+            image_files = []
+        else:
+            image_files = [f for f in os.listdir(image_directory) if f.endswith('.png') or f.endswith('.jpg')]
 
-    # List the image files in the directory
-        image_files = [f for f in os.listdir(image_directory) if f.endswith('.png') or f.endswith('.jpg')]
-        sorted_image_files = ["daily_usage_time_vs_dominant_emotion.png", 
-                          "likes_received_per_day_vs_dominant_emotion.png", 
-                          "dominant_emotion_by_gender.png","dominant_emotion_by_platform.png","dominant_emotion_distribution.png","Post_Per_Day_By_Gender.png"]
+        sorted_image_files = [
+            "daily_usage_time_vs_dominant_emotion.png",
+            "likes_received_per_day_vs_dominant_emotion.png",
+            "dominant_emotion_by_gender.png",
+            "dominant_emotion_by_platform.png",
+            "dominant_emotion_distribution.png",
+            "Post_Per_Day_By_Gender.png"
+        ]
         if image_files:
             st.write("### EDA Graphs")
             for image_file in sorted_image_files:
-            # Create the full path to the image
                 image_path = os.path.join(image_directory, image_file)
-            
-            # Display the image in the Streamlit app
-                st.image(image_path, caption=image_file, use_container_width=True)
+                if os.path.exists(image_path):
+                    st.image(image_path, caption=image_file, use_container_width=True)
+                else:
+                    st.warning(f"Image '{image_file}' not found in '{image_directory}'.")
 
-           # Display insights based on the image
+                # Display insights based on the image
                 if image_file == "daily_usage_time_vs_dominant_emotion.png":
                     st.write("""
     **Insights:**
