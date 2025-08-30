@@ -394,15 +394,6 @@ else:
     - **Boredom** accounts for **14%**, suggesting some level of disinterest or lack of engagement among users.
     - **Anger** is the least represented emotion at **13%**, but still noteworthy as it affects a portion of the user base.
     """)
-                elif image_file == "Post_Per_Day_By_Gender.png":
-                    st.write("""
-    6. **Post Per Day By Gender**:
-    - **Instagram**: This platform sees the highest number of posts per day, predominantly from Female users, followed by Male users, with smaller contributions from Non-binary and Unknown users.
-    - **Twitter**: It ranks second in terms of daily posts, with a majority of the content coming from Female users and a smaller portion from Male users.
-    - **Facebook**: Displays a balanced distribution of posts among Male, Female, and Non-binary users, with a small fraction from Unknown users.
-    - **Snapchat and Whatsapp**: These platforms exhibit a similar trend, where Female users contribute the most posts, followed by Male users, and smaller contributions from Non-binary and Unknown users.
-    - **LinkedIn and Telegram**: These platforms have the lowest number of posts per day. LinkedIn shows a more balanced distribution among all genders, while Telegram sees a higher contribution from Male users and smaller portions from Non-binary and Unknown users.
-    """)
         
         else:
             st.write("No images found in the specified directory.")
@@ -515,4 +506,5 @@ else:
                 st.write(f"#### Predicted Emotion: **{predicted_emotion}**")
                 st.write("---")
         else:
+
             st.write("No prediction history available.")
