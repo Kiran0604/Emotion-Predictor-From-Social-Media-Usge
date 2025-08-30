@@ -331,7 +331,6 @@ else:
             "dominant_emotion_by_gender.png",
             "dominant_emotion_by_platform.png",
             "dominant_emotion_distribution.png",
-            "Post_Per_Day_By_Gender.png"
         ]
         if image_files:
             st.write("### EDA Graphs")
@@ -508,3 +507,4 @@ else:
         else:
 
             st.write("No prediction history available.")
+
