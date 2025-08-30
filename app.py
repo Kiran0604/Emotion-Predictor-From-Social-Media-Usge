@@ -194,9 +194,13 @@ if page == "Back to Home":
     # Encouraging further exploration
     st.write("🔎 *Explore different sections from the Navigation Bar before heading back home!*")
 
+    # Back to Home Button/Link
+    st.markdown("[🏠 Back to Home](http://127.0.0.1:5000/)")
+
     # Closing Note
     st.write("### 🚀 Stay Curious & Keep Exploring!")
     st.write("💡 Have feedback or suggestions? Mail us: kiranraithal.cd22@rvce.edu.in We'd love to hear from you! Happy exploring! 🎭")
+
 else:
     if page == "Introduction":
         st.title("Welcome to the Emotion Predictor App!")
@@ -507,4 +511,5 @@ else:
         else:
 
             st.write("No prediction history available.")
+
 
